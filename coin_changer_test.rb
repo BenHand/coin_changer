@@ -15,4 +15,8 @@ class CoinChangerTest < Minitest::Test
     assert_equal([25, 25, 25, 10, 10], CoinChanger.new.which_coins?(95))
   end
 
+  def test_which_coins_returns_amt_42
+    assert_equal([25, 10, 5, 1, 1], CoinChanger.new.which_coins?(42))
+  end
+
 end
