@@ -12,23 +12,13 @@ class CoinChanger
   end
 
   def which_coins?(amt)
-     remainder = amt % Q if remainder != 0
-        (amt / Q).times do
-          @coins << Q
-        end
-        (remainder / D).times do
-          @coins << D
-        end
-     remainder = remainder % D if remainder != 0
-        (remainder / N).times do
-          @coins << N
-        end
-     remainder = remainder % N if remainder != 0
-        (remainder / P).times do
-          @coins << P
-        end
-     remainder = remainder % P if remainder != 0
-     print @coins
+    [Q, D, N, P].each do |coin|
+      (amt / coin).times do
+        @coins << coin
+      end
+      amt = amt % coin if amt != 0
+    end
+    print @coins
   end
 
 end
