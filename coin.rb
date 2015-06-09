@@ -6,7 +6,7 @@ class CoinChanger
     P = 1
 
   def initialize
-    @coins = []
+    @change = []
     puts "What amount would you like converted to coins?"
     which_coins?(gets.to_i)
   end
@@ -14,11 +14,11 @@ class CoinChanger
   def which_coins?(amt)
     [Q, D, N, P].each do |coin|
       (amt / coin).times do
-        @coins << coin
+        @change << coin
       end
       amt = amt % coin if amt != 0
     end
-    print @coins
+    print @change
   end
 
 end
